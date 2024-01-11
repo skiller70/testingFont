@@ -40,7 +40,7 @@
 }
 
 .title {
-  font-family: styles.$font-sketch-bold;
+  font-family: "sans";
   font-size: styles.px-to-rem(30);
   line-height: styles.px-to-rem(33);
   color: styles.$vivid-red-tangelo;
@@ -68,7 +68,11 @@
   background-color: styles.$white;
   border-width: styles.px-to-rem(5);
   border-style: solid;
-  box-shadow: 0 0 styles.px-to-rem(4) rgba(styles.$chinese-black, 0.08), 0px styles.px-to-rem(4) styles.px-to-rem(6) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.1), 0 styles.px-to-rem(2) styles.px-to-rem(4) styles.px-to-rem(-1) rgba(styles.$chinese-black, 0.06);
+  box-shadow: 0 0 styles.px-to-rem(4) rgba(styles.$chinese-black, 0.08),
+    0px styles.px-to-rem(4) styles.px-to-rem(6) styles.px-to-rem(-1)
+      rgba(styles.$chinese-black, 0.1),
+    0 styles.px-to-rem(2) styles.px-to-rem(4) styles.px-to-rem(-1)
+      rgba(styles.$chinese-black, 0.06);
 
   img {
     align-self: center;

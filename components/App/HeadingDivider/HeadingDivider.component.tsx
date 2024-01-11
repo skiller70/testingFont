@@ -1,30 +1,27 @@
-import Image from "next/image"
-import React, {
-  cloneElement,
-  ReactElement
-} from "react"
+import Image from "next/image";
+import React, { cloneElement, ReactElement } from "react";
 
-import Container from "@/components/App/Container/Container.component"
+import Container from "@/components/App/Container/Container.component";
 
-import PatternTop from "@/assets/images/pattern-top.png"
-import PatternBottom from "@/assets/images/pattern-bottom.png"
+import PatternTop from "@/assets/images/pattern-top.png";
+import PatternBottom from "@/assets/images/pattern-bottom.png";
 
-import styles from "./HeadingDivider.module.scss"
+import styles from "./HeadingDivider.module.scss";
 
 type HeadingDividerProps = {
-  background?: boolean
-  dividerLineBg?: "primary" | "secondary" | "tertiary"
-  icon?: ReactElement
-  pattern?: boolean
-  title: string
-}
+  background?: boolean;
+  dividerLineBg?: "primary" | "secondary" | "tertiary";
+  icon?: ReactElement;
+  pattern?: boolean;
+  title: string;
+};
 
 export default function HeadingDivider({
   background,
   dividerLineBg,
   icon,
   pattern,
-  title
+  title,
 }: HeadingDividerProps) {
   const getDividerLineBgClass = (
     dividerLineBg: "primary" | "secondary" | "tertiary" | undefined
@@ -32,15 +29,15 @@ export default function HeadingDivider({
     const dividerBgClasses = {
       primary: styles.dividerBgPrimary,
       secondary: styles.dividerBgSecondary,
-      tertiary: styles.dividerBgTertiary
-    }
+      tertiary: styles.dividerBgTertiary,
+    };
 
     if (dividerLineBg && dividerBgClasses.hasOwnProperty(dividerLineBg)) {
-      return dividerBgClasses[dividerLineBg]
+      return dividerBgClasses[dividerLineBg];
     }
 
-    return ""
-  }
+    return "";
+  };
 
   return (
     <>
@@ -55,29 +52,34 @@ export default function HeadingDivider({
         />
       )}
       <div
-        className={`relative ${background ? `pt-12 pb-8 ${styles.dividerBgWrapper}` : ""}`.trim()}
+        className={`relative ${
+          background ? `pt-12 pb-8 ${styles.dividerBgWrapper}` : ""
+        }`.trim()}
       >
         <Container>
-          <h2 className={`font-medium ${styles.dividerHeading}`}>
+          <h2 className={`font-medium ${styles.dividerHeading} font-sans`}>
             {title}
             <span className="block w-64">
               <span
                 className={`relative inline-block text-center w-full h-1 ${styles.dividerLine}`}
               >
-                {icon && (
+                {icon &&
                   cloneElement(icon, {
-                    className: `absolute w-7 h-8 left-1/2 z-20 ${styles.dividerIcon}`
-                  })
-                )}
+                    className: `absolute w-7 h-8 left-1/2 z-20 ${styles.dividerIcon}`,
+                  })}
                 <span
-                  className={`absolute w-11 h-7 left-1/2 z-10 ${styles.dividerBg} ${getDividerLineBgClass(dividerLineBg)}`}
+                  className={`absolute w-11 h-7 left-1/2 z-10 ${
+                    styles.dividerBg
+                  } ${getDividerLineBgClass(dividerLineBg)}`}
                 />
               </span>
             </span>
           </h2>
         </Container>
         {background && (
-          <span className={`absolute w-0 h-0 left-1/2 z-10 ${styles.triangle}`} />
+          <span
+            className={`absolute w-0 h-0 left-1/2 z-10 ${styles.triangle}`}
+          />
         )}
       </div>
       {pattern && (
@@ -91,5 +93,5 @@ export default function HeadingDivider({
         />
       )}
     </>
-  )
+  );
 }
